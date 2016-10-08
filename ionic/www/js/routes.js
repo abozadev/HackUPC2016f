@@ -30,6 +30,15 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.about', {
+    url: '/about',
+    views: {
+      'tab4': {
+        templateUrl: 'views/about.html'
+      }
+    }
+  })
+
   .state('tabsController', {
     url: '/main',
     templateUrl: 'views/tabsController.html',
