@@ -32,6 +32,20 @@ app.get('/data/mycars', function(req, res) {
   }
 });
 
+app.get('/data/vehicle_flow', function(req, res) {
+  try {
+      unirest
+      .get(MainURL + 'data/vehicle_flow')
+      .headers({
+          'IDENTITY_KEY' : 'ea720a24e23f269b6d4cbe284e4f4edbf1eea7c94cd39be784b92cf5973d07c9'
+      }).end(function(response){
+          res.send(response.body);
+      });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.get('/catalog/mycars', function(req, res) {
   try {
       unirest

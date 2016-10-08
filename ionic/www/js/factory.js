@@ -16,6 +16,10 @@ angular.module('app.factorys', [])
 		},
 		getPeopleCatalog: function(){
 			return $http.get(urlCatalog + 'pstreams');
+		},
+		getVehicles: function(){
+			console.log(urlData + 'vehicle_flow');
+			return $http.get(urlData + 'vehicle_flow');
 		}
 	}
 
