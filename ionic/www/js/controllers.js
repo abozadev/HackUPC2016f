@@ -141,3 +141,49 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval, $http) 
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $state) {
 }])
+
+.controller('reviewCtrl', ['$scope', '$state', 'Sentilo', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $state, Sentilo) {
+    $scope.showReview = false;
+    $scope.cities = [
+        { id: 1, value: "Barcelona"},
+        { id: 2, value: "London"},
+        { id: 3, value: "Madrid"},
+        { id: 4, value: "Detroit"},
+        { id: 5, value: "Moscou"},
+        { id: 6, value: "Amsterdam"},
+        { id: 7, value: "San Francisco"},
+        { id: 8, value: "Paris"},
+        { id: 9, value: "Berlín"},
+        { id: 10, value: "Tokio"},
+        { id: 11, value: "Los Angeles"}
+    ];
+
+    $scope.stars = [
+        { val: 1},
+        { val: 2},
+        { val: 3},
+        { val: 4},
+        { val: 5}
+    ]
+
+    $scope.model = {};
+    $scope.getReviewsByCity = function(){
+        Sentilo.getReviewsByCity($scope.model.idCity).then(function(success){
+            $scope.reviews = success.data.reviews;
+        })
+    }
+
+    $scope.saveReview = function(){
+        Sentilo.saveReview($scope.model).then(function(success){
+            $scope.getReviewsByCity();
+            $scope.showReviewBtn();
+        })
+    }
+
+    $scope.showReviewBtn = function(){
+        $scope.showReview = !$scope.showReview;
+    }
+}])

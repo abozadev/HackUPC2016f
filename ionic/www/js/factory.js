@@ -1,8 +1,9 @@
 angular.module('app.factorys', [])
 
 .factory('Sentilo', ['$http', function($http){
-	var urlData = 'http://10.192.98.160:8989/data/';
-	var urlCatalog = 'http://10.192.98.160:8989/catalog/';
+	var url = 'http://10.193.81.170:8989/';
+	var urlData = 'http://10.193.81.170:8989/data/';
+	var urlCatalog = 'http://10.193.81.170:8989/catalog/';
 
 	return {
 		getCars: function(){
@@ -16,6 +17,12 @@ angular.module('app.factorys', [])
 		},
 		getPeopleCatalog: function(){
 			return $http.get(urlCatalog + 'pstreams');
+		},
+		getReviewsByCity: function(id){
+			return $http.get(url + 'getReviews/'+id);
+		},
+		saveReview : function(review){
+			return $http.post(url + 'sendReview', review);
 		}
 	}
 

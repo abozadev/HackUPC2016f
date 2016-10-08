@@ -1,3 +1,37 @@
-<ion-view title="Narchotics" id="page2">
-    <ion-content padding="true" class="has-header"></ion-content>
+<ion-view title="Review your city" id="page3">
+    <ion-content padding="true" class="has-header padding" >
+        <ion-list>
+            <ion-item>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Choose a city
+                    </div>
+                    <select ng-options="city.id as city.value for city in cities" ng-model="model.idCity" ng-change="getReviewsByCity()"></select>
+                </label>
+            </ion-item>
+            <ion-item ng-if="!showReview">
+                 <button  class="button button-block button-positive" ng-click="showReviewBtn()">Submit a review</button>
+            </ion-item>
+            <ion-item ng-if="showReview">
+                
+                <label class="item-input item-floating-label placeholder-login">
+                    <span class="input-label placeholder-white">Your Opinion</span>
+                    <input  class="inputs-login placeholder-white" type="text" ng-model="model.opinion" placeholder="Your opinion">
+                </label>
+
+                 <label class="item item-input item-select">
+                    <div class="input-label">
+                        Stars
+                    </div>
+                    <select ng-options="star.val as star.val for star in stars" ng-model="model.stars"></select>
+                </label>
+                </br>
+                <button class="button button-positive button-block"ng-click="saveReview()">Send Review </button>
+            </ion-item>
+            <ion-item ng-if="!showReview" ng-repeat="review in reviews">
+                {{review.opinion}} - Stars: {{review.stars}}
+            </ion-item>
+       </ion-list>
+        
+    </ion-content>
 </ion-view>
