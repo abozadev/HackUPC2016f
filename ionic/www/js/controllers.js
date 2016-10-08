@@ -149,8 +149,4 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval, $http) 
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $state) {
-
-    $scope.goToAboutUs = function(){
-        $state.go('about');
-    }
 }])
