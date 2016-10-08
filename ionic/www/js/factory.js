@@ -12,7 +12,10 @@ angular.module('app.factorys', [])
 			return $http.get(urlCatalog + 'mycars');
 		},
 		getPeopleStreams: function(){
-			return $http.get(url + 'pstreams');
+			return $http.get(urlData + 'pstreams');
+		},
+		getPeopleCatalog: function(){
+			return $http.get(urlCatalog + 'pstreams');
 		}
 	}
 
