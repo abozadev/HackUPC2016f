@@ -56,10 +56,10 @@ function($scope, $stateParams, Sentilo) {
 
 }])
    
-.controller('terrorismCtrl', ['$scope', '$stateParams', 'Sentilo', '$cordovaGeolocation', '$interval',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('terrorismCtrl', ['$scope', '$stateParams', 'Sentilo', '$cordovaGeolocation', '$interval', '$http',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval) {
+function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval, $http) {
     $scope.arrayOfCircles = [];
     $scope.sensorsCatalog = [];
     
@@ -150,6 +150,8 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval) {
         };
         $scope.map = new google.maps.Map(document.getElementById("mapt"), mapOptions);
     });
+
+
 
     
 
