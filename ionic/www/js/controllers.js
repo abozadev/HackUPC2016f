@@ -41,10 +41,6 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation) {
             console.log("Could not get location");
         });
     })
-    
-
-
-
 }])
 
   
