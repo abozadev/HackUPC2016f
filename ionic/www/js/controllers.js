@@ -33,12 +33,7 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation) {
                       position: obj
                     });
                 })
-                
-
             });
-
-        }, function(error){
-            console.log("Could not get location");
         });
     })
 }])
