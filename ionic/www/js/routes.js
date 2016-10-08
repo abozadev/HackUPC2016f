@@ -20,8 +20,8 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.cart', {
-    url: '/containers',
+  .state('tabsController.drugs', {
+    url: '/drugs',
     views: {
       'tab2': {
         templateUrl: 'views/drugs.html',

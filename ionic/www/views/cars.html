@@ -1,8 +1,10 @@
 <ion-view title="Grand Theft Auto" id="page1">
-    <ion-content padding="true" class="has-header"></ion-content>
-    <ion-list>
-        <ion-item ng-repeat="sensor in sensors">
-            Hello, {{sensor}}!
-        </ion-item>
-    </ion-list>
+    <ion-content padding="true" class="has-header">
+        <!--<ion-list>
+            <ion-item ng-repeat="sensor in sensors">
+                Hello, {{sensor.sensor}}!
+            </ion-item>
+        </ion-list>-->
+        <div id="map" data-tap-disabled="true"></div>
+    </ion-content>
 </ion-view>

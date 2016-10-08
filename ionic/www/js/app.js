@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services', 'app.factorys'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services', 'app.factorys', 'ngCordova'])
 
 .run(function($ionicPlatform, $http) {
   $ionicPlatform.ready(function() {
@@ -20,5 +20,4 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       StatusBar.styleDefault();
     }
   });
-  //$http.defaults.headers.common['IDENTITY_KEY'] = '0aa89b6ab1ea9bdc2df322f057f3253ad255621ea38b2c11490bc2bd59a6dba7';
 })
