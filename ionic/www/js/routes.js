@@ -20,17 +20,6 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.drugs', {
-    url: '/drugs',
-    views: {
-      'tab2': {
-        templateUrl: 'views/drugs.html',
-        controller: 'drugsCtrl'
-      }
-    }
-  })
-
-
   .state('tabsController.terrorism', {
     url: '/terrorism',
     views: {
