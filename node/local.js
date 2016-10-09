@@ -3,16 +3,15 @@ var server = require('http').createServer(app);
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;
-
 var Review = require('./reviewModel');
 
 mongoose.connect('mongodb://127.0.0.1/opentrends');
 
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
-})
+});
 
 var unirest = require('unirest'),
    MainURL = 'http://api.sentilo.cloud/';
@@ -109,7 +108,7 @@ app.put('/data/pstreams', function(req, res) {
 
 app.get('/getReviews/:id', function(req, res) {
 	var p_idCity = req.params.id;
-	
+
 	Review.find({
 		idCity: p_idCity
 	}, 'id idCity opinion stars date')
@@ -117,7 +116,7 @@ app.get('/getReviews/:id', function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			if (reviews != null) {
+			if (reviews !== null) {
 				res.send({
 					reviews
 				})
@@ -130,7 +129,7 @@ app.get('/getReviews/:id', function(req, res) {
 
 app.post('/sendReview', jsonParser, function(req, res) {
 	var review = req.body;
-	
+
 	var reviewForDB = new Review({
 	  idCity: req.body.idCity,
 	  opinion: req.body.opinion,

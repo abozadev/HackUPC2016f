@@ -1,0 +1,35 @@
+angular.module('app.factorys', [])
+
+.factory('Sentilo', ['$http', function($http){
+	var url = 'http://10.193.81.170:8989/';
+	var urlData = 'http://10.193.81.170:8989/data/';
+	var urlCatalog = 'http://10.193.81.170:8989/catalog/';
+
+	return {
+		getCars: function(){
+			return $http.get(urlData + 'mycars');
+		},
+		getCarsCatalog: function(){
+			return $http.get(urlCatalog + 'mycars');
+		},
+		getPeopleStreams: function(){
+			return $http.get(urlData + 'pstreams');
+		},
+		getPeopleCatalog: function(){
+			return $http.get(urlCatalog + 'pstreams');
+		},
+<<<<<<< HEAD
+		getVehicles: function(){
+			console.log(urlData + 'vehicle_flow');
+			return $http.get(urlData + 'vehicle_flow');
+=======
+		getReviewsByCity: function(id){
+			return $http.get(url + 'getReviews/'+id);
+		},
+		saveReview : function(review){
+			return $http.post(url + 'sendReview', review);
+>>>>>>> 8c6284ab1d345c58618bcc8d4d0b2808205c2b76
+		}
+	}
+
+}]);
