@@ -1,10 +1,15 @@
 var app = require('express')();
 var server = require('http').createServer(app);
-
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var ObjectId = require('mongoose').Types.ObjectId;
+
+var Review = require('./reviewModel');
+
+mongoose.connect('mongodb://127.0.0.1/opentrends');
 
 var jsonParser = bodyParser.json()
-  // create application/x-www-form-urlencoded parser
+
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 })
@@ -100,6 +105,47 @@ app.put('/data/pstreams', function(req, res) {
   } catch (err) {
     console.log(err);
   }
+});
+
+app.get('/getReviews/:id', function(req, res) {
+	var p_idCity = req.params.id;
+	
+	Review.find({
+		idCity: p_idCity
+	}, 'id idCity opinion stars date')
+	.exec(function (err, reviews) {
+		if (err) {
+			console.log(err);
+		} else {
+			if (reviews != null) {
+				res.send({
+					reviews
+				})
+			} else {
+				res.send([])
+			}
+		}
+	});
+});
+
+app.post('/sendReview', jsonParser, function(req, res) {
+	var review = req.body;
+	
+	var reviewForDB = new Review({
+	  idCity: req.body.idCity,
+	  opinion: req.body.opinion,
+	  stars: req.body.stars,
+	});
+	reviewForDB.save(function (err) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send({
+				status: "OK"
+			});
+		}
+	});
+
 });
 
 app.use(function(req, res, next) {

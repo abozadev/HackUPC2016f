@@ -23,9 +23,28 @@ angular.module('app.routes', [])
   .state('tabsController.terrorism', {
     url: '/terrorism',
     views: {
-      'tab3': {
+      'tab2': {
         templateUrl: 'views/terrorism.html',
         controller: 'terrorismCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.review', {
+    url: '/review',
+    views: {
+      'tab3': {
+        templateUrl: 'views/review.html',
+        controller: 'reviewCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.about', {
+    url: '/about',
+    views: {
+      'tab4': {
+        templateUrl: 'views/about.html'
       }
     }
   })

@@ -1,6 +1,7 @@
 angular.module('app.factorys', [])
 
 .factory('Sentilo', ['$http', function($http){
+	var url = 'http://10.193.81.170:8989/';	
 	var urlData = 'http://10.192.98.160:8989/data/';
 	var urlCatalog = 'http://10.192.98.160:8989/catalog/';
 
@@ -20,6 +21,12 @@ angular.module('app.factorys', [])
 		getVehicles: function(){
 			console.log(urlData + 'vehicle_flow');
 			return $http.get(urlData + 'vehicle_flow');
+		},
+		getReviewsByCity: function(id){
+			return $http.get(url + 'getReviews/'+id);
+		},
+		saveReview : function(review){
+			return $http.post(url + 'sendReview', review);
 		}
 	}
 
