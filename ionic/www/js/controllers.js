@@ -172,7 +172,7 @@ function ($scope, $stateParams, Sentilo, $cordovaGeolocation, $interval, $http) 
                 fillOpacity: 0.35,
                 map: $scope.map,
                 center: new google.maps.LatLng(sensor.location.split(' ')[0], sensor.location.split(' ')[1]),
-                radius: 80
+                radius: 130
               }));
           })
     }
